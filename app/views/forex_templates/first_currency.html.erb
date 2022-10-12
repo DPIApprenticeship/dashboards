@@ -1,4 +1,10 @@
 <h1>First Currency</h1>
-<a href="/">Go back</a>
+<a href="/forex">Go back</a>
 
-<%= @currency_keys %>
+<ul>
+<% @currencies.each do |currency| %>
+  <li>
+    <a href="/<%= @first_currency %>/<%= currency %>">Convert 1 <%= @first_currency %> to <%= currency %>...</a>
+  </li>
+<% end %>
+</ul>

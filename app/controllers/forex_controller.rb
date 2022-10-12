@@ -14,7 +14,8 @@ class ForexController < ApplicationController
   end
 
   def first_currency
-
+    @currencies = get_currencies
+    @first_currency = params.fetch(:first_currency)
     render({ :template => "forex_templates/first_currency.html.erb"})
   end
 
