@@ -16,10 +16,21 @@ class ForexController < ApplicationController
   def first_currency
     @currencies = get_currencies
     @first_currency = params.fetch(:first_currency)
+    
     render({ :template => "forex_templates/first_currency.html.erb"})
   end
 
   def exchange
+    @first_currency = params.fetch(:first_currency)
+    @second_currency = params.fetch(:second_currency)
+
+    url = "https://api.exchangerate.host/convert?from=#{@first_currency}&to=#{@second_currency}"
+    exchange_data = URI.open(url).read
+    parsed_exchange_data = JSON.parse(exchange_data)
+
+    @amount = parsed_exchange_data.fetch("info").fetch("rate")
+
+
     render({ :template => "forex_templates/exchange.html.erb"})
   end
 end

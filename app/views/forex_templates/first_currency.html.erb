@@ -4,7 +4,7 @@
 <ul>
 <% @currencies.each do |currency| %>
   <li>
-    <a href="/<%= @first_currency %>/<%= currency %>">Convert 1 <%= @first_currency %> to <%= currency %>...</a>
+    <a href="/forex/<%= @first_currency %>/<%= currency %>">Convert 1 <%= @first_currency %> to <%= currency %>...</a>
   </li>
 <% end %>
 </ul>
